@@ -76,10 +76,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# 📌 标题
+# 标题
 st.markdown('<h1 class="title">What Should I Eat Today?</h1>', unsafe_allow_html=True)
 
-# 📌 读取数据
+# 读取数据
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 csv_path = os.path.join(BASE_DIR, "menu.csv")
 
@@ -88,7 +88,7 @@ if not os.path.exists(csv_path):
 
 df = pd.read_csv(csv_path)
 
-# **📌 推荐算法**
+# 推荐算法
 def recommend_food(max_calories, max_price):
     # 筛选符合预算要求的菜品
     filtered_df = df[df["价格($)"] <= max_price].copy()
@@ -120,7 +120,7 @@ def recommend_food(max_calories, max_price):
 
     return selected_df, total_calories, round(total_price, 2)
 
-# 🎯 用户输入
+# 用户输入
 st.markdown('<div class="slider-container">', unsafe_allow_html=True)
 
 st.markdown('<p class="slider-label">🔥 Select Calorie Limit</p>', unsafe_allow_html=True)
@@ -149,14 +149,14 @@ st.markdown('</div>', unsafe_allow_html=True)  # 结束滑块容器
 
 st.markdown("<hr>", unsafe_allow_html=True)
 
-# 📌 获取推荐
+# 获取推荐
 if st.button("🔍 Get Recommendations"):
     result, total_calories, total_price = recommend_food(max_calories, max_price)
 
     if not result.empty:
         st.markdown("## Recommended Takeout Options 🍽️")
 
-        # 📌 **卡片式显示推荐菜品**
+        # 卡片式显示推荐菜品
         for _, row in result.iterrows():
             st.markdown(
                 f"""
@@ -170,7 +170,7 @@ if st.button("🔍 Get Recommendations"):
                 unsafe_allow_html=True
             )
 
-        # 📌 **卡片式显示总热量和总价格**
+        # 卡片式显示总热量和总价格
         st.markdown(
             f"""
             <div class="summary-box">
