@@ -13,7 +13,7 @@ import os
 # 设置页面信息
 st.set_page_config(page_title="今天吃什么", page_icon="🍽️", layout="centered")
 
-# 🔥 UI 样式美化
+# UI美化
 st.markdown(
     """
     <style>
